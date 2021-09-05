@@ -1,5 +1,38 @@
-.right-align{
-    text-align: right;
+.black-bar{
     color: white;
-    background-color: black;
+    background-color: black; 
+    border-spacing: 0cm;
+    font-size: smaller;
+}
+.black-bar#header{
+    text-align: right;
+}
+
+#gold-span{
+    color: gold;
+}
+
+.box{
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+    font-weight: 900;
+}
+#second-bar{
+    text-align: left;
+    text-transform: uppercase;
+    background-color: gold;
+}
+
+#headline{
+    font-size: larger;
+    font-weight: bold;
+}
+
+p.indent{
+    text-indent: 15px;
+}
+
+.black-bar#footer{
+    text-align: center;
 }
