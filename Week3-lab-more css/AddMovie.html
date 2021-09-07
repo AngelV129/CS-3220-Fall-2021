@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angel Villalobos Lab 2</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2><a href="BoxOffice.html"> Office</a> > Add Novie</h2>
+
+    <form method="GET" id="box"></form>
+
+    <!-- movie tabke-->
+    <div id="container">
+        <h2><a href="BoxOffice.html"> Office</a> > Add Novie</h2>
+        <!-- header  -->
+        <div id="header">Movie</div>
+            <!-- text box -->
+        <div id="float-field"><input type="text" name="movie" id="movie" value="" form="box"> </div>
+
+        <!-- movie tabke-->
+        <tr><th><b>Studio:</b></th>
+            <td><select name="Studios" id="" form="box">
+                <option value="A">Sony Pictures Releasing</option>
+                <option value="B">STX Entertainment</option>
+                <option value="C">Universal Pictures</option>
+                <option value="D">Walt Disney Studios</option>
+            </select></td>
+
+        </tr>
+
+        <!-- Gross tabke-->
+        <tr><th><b>Gross:</b></th>
+            <td><input type="text" form="box"></td>
+
+        </tr>
+        <!-- theatre tabke-->
+        <tr><th><b>Theaters:</b></th>
+            <td> <input type="text" form="box"></td>
+
+        </tr>
+        <!-- realese tabke-->
+        <tr><th><b>New Release:</b></th>
+            <td> <input type="checkbox" form="box"></td>
+
+        </tr>
+
+        <!--Two buttions-->
+        <tr><td colspan="2"><input type="reset" name="Reset" form="box"> <input type="Submit" value="Add"></td></tr>
+
+    </div>
+</body>
+</html>

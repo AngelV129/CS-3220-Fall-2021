@@ -13,3 +13,23 @@ td.small-bottom-border, td.small-bottom-border + td{
 td.bottom-border,td.bottom-border + td, tr.bottom-border{
     border-bottom: black 3px double;
 }
+h2{
+    text-align: left;
+    margin-left: 2%;
+}
+div#header{
+    text-align: left;
+    font-weight: bolder;
+    margin-left: 2%;
+}
+
+div#container{
+    border: black 1px solid;
+}
+#float-field{
+    float: right;
+    padding-right: 250px;
+    width: 200px;
+    height: 100px;
+
+}
