@@ -1,0 +1,15 @@
+table{
+    border-collapse: collapse;
+}
+
+thead{
+    border-bottom: black 2px solid;
+}
+
+td.small-bottom-border, td.small-bottom-border + td{
+    border-bottom: black 1px solid;
+}
+
+td.bottom-border,td.bottom-border + td, tr.bottom-border{
+    border-bottom: black 3px double;
+}
