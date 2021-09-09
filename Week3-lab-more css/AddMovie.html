@@ -9,47 +9,50 @@
 </head>
 <body>
 
-    <h2><a href="BoxOffice.html"> Office</a> > Add Novie</h2>
-
     <form method="GET" id="box"></form>
 
     <!-- movie tabke-->
     <div id="container">
-        <h2><a href="BoxOffice.html"> Office</a> > Add Novie</h2>
-        <!-- header  -->
-        <div id="header">Movie</div>
-            <!-- text box -->
-        <div id="float-field"><input type="text" name="movie" id="movie" value="" form="box"> </div>
+        <h2><a href="BoxOffice.html"> Office</a> > Add Movie</h2>
+        <!-- Left coolumn terms-->
 
-        <!-- movie tabke-->
-        <tr><th><b>Studio:</b></th>
-            <td><select name="Studios" id="" form="box">
+        <div id="left-column">
+            <div id="terms">Movie</div>
+            <div id="terms">Studio</div>
+            <div id="terms">Gross</div>
+            <div id="terms">Theaters</div>
+            <div id="terms">New Release</div>
+<!--            <div><input type="reset" name="Reset" form="box"> <input type="Submit" value="Add"></div>-->
+        </div>
+
+            <!-- text boxes -->
+        <div id="right-column">
+
+            <!-- Movie text -->
+            <div id="input-fields"><input type="text" name="movie" id="movie" value="" size="" form="box"></div>
+
+            <!-- studio fields -->
+            <div id="input-fields"><select name="Studios" id="drop" form="box">
                 <option value="A">Sony Pictures Releasing</option>
                 <option value="B">STX Entertainment</option>
                 <option value="C">Universal Pictures</option>
                 <option value="D">Walt Disney Studios</option>
-            </select></td>
+            </select></div>
 
-        </tr>
+            <!-- gross text -->
+            <div id="input-fields"><input type="text" form="box"></div>
 
-        <!-- Gross tabke-->
-        <tr><th><b>Gross:</b></th>
-            <td><input type="text" form="box"></td>
+            <!-- theater text -->
+            <div id="input-fields"><input type="text" form="box"></div>
 
-        </tr>
-        <!-- theatre tabke-->
-        <tr><th><b>Theaters:</b></th>
-            <td> <input type="text" form="box"></td>
+            <div><input type="checkbox" form="box"></div>
+    </div>
 
-        </tr>
-        <!-- realese tabke-->
-        <tr><th><b>New Release:</b></th>
-            <td> <input type="checkbox" form="box"></td>
+        <div id="foot"><input type="reset" name="Reset" form="box"> <input type="Submit" value="Add"></div>
 
-        </tr>
 
         <!--Two buttions-->
-        <tr><td colspan="2"><input type="reset" name="Reset" form="box"> <input type="Submit" value="Add"></td></tr>
+
 
     </div>
 </body>

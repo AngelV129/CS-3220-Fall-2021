@@ -17,19 +17,48 @@ h2{
     text-align: left;
     margin-left: 2%;
 }
-div#header{
-    text-align: left;
-    font-weight: bolder;
-    margin-left: 2%;
-}
 
 div#container{
     border: black 1px solid;
+    width: 400px;
+    height: 250px;
 }
-#float-field{
+#right-column{
     float: right;
-    padding-right: 250px;
-    width: 200px;
-    height: 100px;
+    width: 70%;
 
+}
+div#left-column{
+    float: left;
+    text-align: left;
+    font-weight: bolder;
+}
+
+#terms{
+    text-align: left;
+    padding-left: 1em;
+    margin-bottom: 0.8em;
+}
+
+#input-fields{
+    margin-bottom: 0.6em;
+}
+
+#foot{
+    clear: left;
+    padding-left: 1em;
+}
+
+[type="checkbox"]{
+    margin-top: .5em;
+    margin-right: 20px;
+    border: black solid 2px;
+}
+
+input[type="text"]{
+    width: 90%;
+}
+
+#drop{
+    width: 91%
 }
