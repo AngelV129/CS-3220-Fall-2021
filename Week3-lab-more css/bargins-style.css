@@ -6,7 +6,7 @@
     width: 99%;
     margin-right: 1em;
 }
-
+/* Sub title under My bArugins*/
 h2+div{
     border: black 1px solid;
     height: 2em;
@@ -24,7 +24,6 @@ h2+div{
 #left-column{
     display: flex;
     flex-direction: column;
-    border: black 1px solid;
     float: left;
     width: 60%;
     margin-right: 3em;
@@ -35,10 +34,35 @@ h2+div{
     height: 200px;
 }
 
+/* headers for each column */
+.AD + div{
+    font-weight: bolder;
+    font-size: x-large;
+    border-bottom: black 3px solid;
+    padding-top: .8em;
+}
+
+/* boxes under header */
+ .sub-boxes ~ div, .sub-boxes{
+    border: black solid 1px;
+     margin-top: 1em;
+}
+/* any div that is a subheader */
+.deal-header{
+    font-weight: bolder;
+    font-size: large;
+
+}
+
+/* margins for header and paragraphs */
+.deal-header + p, .deal-header{
+    margin-top: .7em;
+    margin-left: .6em;
+}
+
 #right-column{
     display: flex;
     flex-direction: column;
-    border: black 1px solid;
     float: right;
     width: 40%;
 
