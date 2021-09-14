@@ -1,0 +1,40 @@
+body {
+    margin: 0px;
+}
+
+#header {
+    text-align: center;
+    border: 1px solid black;
+    position: fixed;
+    top: 0px; 
+    width: 100%;
+    background-color: yellow;
+}
+
+#menu {
+    border: 1px solid black;
+    float: left;
+    width: 15%; 
+    margin-top: 5em;
+    padding-right: 0.5em;
+}
+
+#content {
+    border: 1px solid black;
+    float: right;
+    width: 80%;
+    margin-top: 5em;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+#footer {
+    text-align: center;
+    border: 1px solid black;
+    clear: both;
+}
+
+p {
+    column-count: 3;
+    column-rule: 1px solid black;
+}

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.container div {
+  background: yellow;
+  border: 1px solid black;
+  text-align: center;
+  vertical-align: middle;
+}
+.regular {
+  width: 200px;
+  height: 200px;
+}
+.big {
+  width: 300px;
+  height: 300px;
+}
+.small {
+  width: 100px;
+  height: 100px;
+}

@@ -1,0 +1,65 @@
+table{
+    border-collapse: collapse;
+}
+
+thead{
+    border-bottom: black 2px solid;
+}
+
+td.small-bottom-border, td.small-bottom-border + td{
+    border-bottom: black 1px solid;
+}
+
+td.bottom-border,td.bottom-border + td, tr.bottom-border{
+    border-bottom: black 3px double;
+}
+h2{
+    text-align: left;
+    margin-left: 2%;
+}
+
+div#container{
+    border: black 1px solid;
+    width: 400px;
+    height: 250px;
+}
+#right-column{
+    float: right;
+    width: 70%;
+
+}
+div#left-column{
+    float: left;
+    text-align: left;
+    font-weight: bolder;
+}
+
+#terms{
+    text-align: left;
+    padding-left: 1em;
+    margin-bottom: 0.8em;
+}
+
+#input-fields{
+    margin-bottom: 0.6em;
+}
+
+#foot{
+    clear: left;
+    padding-left: 1em;
+}
+
+[type="checkbox"]{
+    margin-top: .5em;
+    margin-right: 20px;
+    border: black solid 2px;
+    margin-left: -1px;
+}
+
+input[type="text"]{
+    width: 90%;
+}
+
+#drop{
+    width: 91%
+}
