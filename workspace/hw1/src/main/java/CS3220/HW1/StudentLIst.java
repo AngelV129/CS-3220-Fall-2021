@@ -34,6 +34,9 @@ public class StudentLIst extends HttpServlet {
 		// TODO Auto-generated method stub
 		super.init(config);
 		List<Student> entries = new ArrayList<Student>();
+		
+//		Student test = new Student("angel","mom","ass.com",26);
+//		entries.add(test);
 		// settting in application scope
 		config.getServletContext().setAttribute("entries", entries);
 	}
@@ -47,8 +50,9 @@ public class StudentLIst extends HttpServlet {
 		
 		response.setContentType( "text/html" );
         PrintWriter out = response.getWriter();
-        out.println( "<html><head><title>AdditionPractice</title></head><body>" );
+        out.println( "<html><head><title>Student List</title></head><body>" );
         
+        out.println("<div><a href=''></a>New Student</div>");
         // Creating a table
         out.println("<table border=1>");
         //open table head
@@ -61,6 +65,21 @@ public class StudentLIst extends HttpServlet {
         
         // Close table head
         out.println("</tr> </thead>");
+        // Fill table body
+        out.println("<tbody>");
+        
+        // fills rows and cols
+        for (Student entry: entries) {
+        	out.println("<tr>");
+        	out.println("<td>" + entry.getM_name() + "</td>");
+        	out.println("<td>" + entry.getM_age() + "</td>");
+        	out.println("<td>" + entry.getM_parent_name() + "</td>");
+        	out.println("<td>" + entry.getM_eMail() + "</td>");
+        }
+       
+        // end of table body
+        out.println("</tbody>");
+        
         out.println( "</body></html>" );
 	}
 
