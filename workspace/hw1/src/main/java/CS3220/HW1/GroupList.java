@@ -2,6 +2,11 @@ package CS3220.HW1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -27,6 +32,16 @@ public class GroupList extends HttpServlet {
 	
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
+		Map<String, List<String>> map = new TreeMap<>(); 
+		List<String> tmpList = new ArrayList<String>();
+		tmpList.add("Angel");
+		tmpList.add("james");
+		map.put("MEN", tmpList);
+		tmpList = new ArrayList<String>();
+		tmpList.add("WHo");
+		map.put("yes", tmpList);
+		
+		config.getServletContext().setAttribute("map", map);
 	
 	}
 
@@ -37,9 +52,13 @@ public class GroupList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int array_size = 5;
+		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
+		
+		
 		response.setContentType( "text/html" );
         PrintWriter out = response.getWriter();
-        out.println( "<html><head><title>AdditionPractice</title></head><body>" );
+        out.println( "<html><head><title>Group List</title></head><body>" );
         
         // Link to new to new group.
         out.println("<div><a href=''></a>New Student</div>");
@@ -54,6 +73,29 @@ public class GroupList extends HttpServlet {
         
         // Close table head
         out.println("</tr> </thead>");
+        
+        // fill the table with current group information.
+        out.println("<tbody>");
+        // get itertator of map set.
+        Iterator<Map.Entry<String, ArrayList<String>>> itr = map.entrySet().iterator();
+        
+        // loop for each row
+        while(itr.hasNext()) {
+        	out.println("<tr>");
+        	Map.Entry<String, ArrayList<String>> entry = itr.next();
+        	out.println("<td>" + entry.getKey() + "</td>");
+        	// get all names associated with group name
+        	List<String> names = entry.getValue();
+        	out.println("<td>");
+        	for(int i = 0; i < names.size(); i++) {
+        		out.println(names.get(i) + " ");
+        	}
+        	out.println("</td>");
+        	out.println("</tr>");
+        }
+        
+        // close tabble body
+        out.println("</tbody>");
         // Fill table body
         out.println("<tbody>");
         

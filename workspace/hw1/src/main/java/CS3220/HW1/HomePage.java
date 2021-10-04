@@ -48,7 +48,7 @@ public class HomePage extends HttpServlet {
 		response.setContentType( "text/html" );
         PrintWriter out = response.getWriter();
         out.println( "<html><head><title>AdditionPractice</title></head><body>" );
-        out.println("<p> <a href=''> Students </a> | <a href=''> Groups</a></p>");
+        out.println("<p> <a href='/StudentLIst'> Students </a> | <a href='/GroupList'> Groups</a></p>");
         
         out.println( "</body></html>" );
 		

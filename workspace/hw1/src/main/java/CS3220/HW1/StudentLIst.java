@@ -75,6 +75,7 @@ public class StudentLIst extends HttpServlet {
         	out.println("<td>" + entry.getM_age() + "</td>");
         	out.println("<td>" + entry.getM_parent_name() + "</td>");
         	out.println("<td>" + entry.getM_eMail() + "</td>");
+        	out.println("</tr>");
         }
        
         // end of table body
