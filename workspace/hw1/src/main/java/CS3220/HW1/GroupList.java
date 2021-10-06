@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GroupList
  */
-@WebServlet("/GroupList")
+@WebServlet(urlPatterns="/GroupList", loadOnStartup=2)
 public class GroupList extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,13 +33,16 @@ public class GroupList extends HttpServlet {
 	public void init(ServletConfig config) throws ServletException {
 		super.init(config);
 		Map<String, List<String>> map = new TreeMap<>(); 
-		List<String> tmpList = new ArrayList<String>();
-		tmpList.add("Angel");
-		tmpList.add("james");
-		map.put("MEN", tmpList);
-		tmpList = new ArrayList<String>();
-		tmpList.add("WHo");
-		map.put("yes", tmpList);
+//		List<String> tmpList = new ArrayList<String>();
+//		tmpList.add("Angel");
+//		tmpList.add("james");
+//		tmpList.add("james");
+//		tmpList.add("james");
+//		tmpList.add("james");
+//		map.put("MEN", tmpList);
+//		tmpList = new ArrayList<String>();
+//		tmpList.add("WHo");
+//		map.put("yes", tmpList);
 		
 		config.getServletContext().setAttribute("map", map);
 	
@@ -61,7 +64,7 @@ public class GroupList extends HttpServlet {
         out.println( "<html><head><title>Group List</title></head><body>" );
         
         // Link to new to new group.
-        out.println("<div><a href=''></a>New Student</div>");
+        out.println("<div><a href='./AddGroup'>New Group</a></div> <br>");
         
         // Creating a table
         out.println("<table border=1>");

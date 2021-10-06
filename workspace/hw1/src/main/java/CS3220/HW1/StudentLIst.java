@@ -17,7 +17,7 @@ import hw1.model.Student;
 /**
  * Servlet implementation class StudentLIst
  */
-@WebServlet("/StudentLIst")
+@WebServlet(urlPatterns="/StudentLIst", loadOnStartup=3)
 public class StudentLIst extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -52,7 +52,7 @@ public class StudentLIst extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println( "<html><head><title>Student List</title></head><body>" );
         
-        out.println("<div><a href=''></a>New Student</div>");
+        out.println("<div><a href='./AddStudent'>New Student</a></div> <br>");
         // Creating a table
         out.println("<table border=1>");
         //open table head
