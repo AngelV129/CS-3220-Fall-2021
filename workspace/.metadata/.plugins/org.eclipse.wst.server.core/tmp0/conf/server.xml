@@ -153,7 +153,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
-      <Context docBase="C:\Users\Jose\Documents\CSULA\Fall21\CS-3220-Fall-2021\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="C:\Users\Jose\Documents\CSULA\Fall21\CS-3220-Fall-2021\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\lab7" path="/lab7" reloadable="true" source="org.eclipse.jst.jee.server:lab7"/></Host>
+      <Context docBase="/home/angel/Documents/CSULA/Fall21/cs3220-webdev/CS-3220-Fall-2021/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/ROOT" path="" reloadable="false"/><Context docBase="/home/angel/Documents/CSULA/Fall21/cs3220-webdev/CS-3220-Fall-2021/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/lab7" path="/lab7" reloadable="true" source="org.eclipse.jst.jee.server:lab7"/><Context docBase="/home/angel/Documents/CSULA/Fall21/cs3220-webdev/CS-3220-Fall-2021/workspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/lab8-2" path="/lab8-2" reloadable="true" source="org.eclipse.jst.jee.server:lab8-2"/></Host>
     </Engine>
   </Service>
 </Server>

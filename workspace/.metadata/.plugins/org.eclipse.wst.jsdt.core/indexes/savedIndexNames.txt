@@ -1,17 +1,7 @@
-<<<<<<< HEAD
 INDEX VERSION 1.4+/home/angel/Documents/CSULA/Fall21/cs3220-webdev/CS-3220-Fall-2021/workspace/.metadata/.plugins/org.eclipse.wst.jsdt.core/indexes
-1918482006.index
-1478859645.index
 2905929911.index
-247253159.index
+1918482006.index
 1310648332.index
+247253159.index
+1478859645.index
 3265206239.index
-=======
-INDEX VERSION 1.4+C:\Users\Jose\Documents\CSULA\Fall21\CS-3220-Fall-2021\workspace\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-1583015441.index
-3964833873.index
-1168125908.index
-3623557781.index
-2249900291.index
-2552147265.index
->>>>>>> e900c5afdcbb1bcae84ad611762b30c0a6ddebf2
