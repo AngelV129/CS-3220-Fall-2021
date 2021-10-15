@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Display Question ${index}}</title>
 </head>
 <body>
 <!-- The index subtracts one because controller sends starting index begining from 1 -->

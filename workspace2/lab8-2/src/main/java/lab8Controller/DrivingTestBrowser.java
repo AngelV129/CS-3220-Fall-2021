@@ -134,26 +134,30 @@ public class DrivingTestBrowser extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		int index =  (int) session.getAttribute("index");
-		List<Question> ls = (List<Question>) request.getServletContext().getAttribute("Questions");
-
-		// check if index is at the last index
-		// if yes, set to zero
-		if (index >= ls.size()) {
-			
-			index = 1;
+		
+//		String test = (String) session.getAttribute("index");
+		// check if value is a 
+		if(session.getAttribute("index") == null) {
+			session.setAttribute("index", 1);
+		}
+		else {
+			int index = (int) session.getAttribute("index");
+		
+			List<Question> ls = (List<Question>) request.getServletContext().getAttribute("Questions");
+			// check if index is at the last index
+			// if yes, set to zero
+			if (index >= ls.size()) {
+				index = 1;
+			}
+			// else increment
+			else {
+				index++;
+			}
+	
+			session.setAttribute("index", index);
 		}
 		
-		// else increment
-		else {
-			
-			index++;
-		}
-
-		session.setAttribute("index", index);
-	
-	
-	request.getRequestDispatcher("/WEB-INF/displayQuestion.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/displayQuestion.jsp").forward(request, response);
 	}
  
 
