@@ -47,7 +47,7 @@ public class GroupList extends HttpServlet {
 		int array_size = 5;
 		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
 		
-		request.getRequestDispatcher("/WEB-INF/GroupList.jsp").forward(request, response);
+		request.getRequestDispatcher("GroupList.jsp").forward(request, response);
         
       
 	}

@@ -19,10 +19,12 @@
 	</thead>
 	<tbody>
 		<c:forEach var="student" items="${entries}">
+		<tr>
 			<td>${student.m_name}</td>
 			<td>${student.m_age}</td>
 			<td>${student.m_parent_name}</td>
 			<td>${student.m_eMail}</td>
+		</tr>
 		</c:forEach>
 	</tbody>
 </table>

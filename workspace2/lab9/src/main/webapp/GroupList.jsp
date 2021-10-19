@@ -24,7 +24,7 @@
 				</td>
 				<td>
 					<c:forEach var="name" items="${entry.value}">
-						 ${name} 
+						 <span>${name}  </span>    
 					</c:forEach>
 				</td>
 			</tr>

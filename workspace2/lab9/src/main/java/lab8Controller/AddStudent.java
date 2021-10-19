@@ -37,59 +37,8 @@ public class AddStudent extends HttpServlet {
 		
 		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
 		
-		response.setContentType( "text/html" );
-        PrintWriter out = response.getWriter();
-        out.println( "<html><head><title>Add Student</title></head><body>" );
-        //create form.
-        out.println("<form action='AddStudent' method='post'> ");
-        //Add table inside of form
-        out.println("<table border=1>");
-        // name row
-        out.println("<tr>");
-        out.println("<td><span style=text-align: center; font-weight: bold>Name</span></td>");
-        out.println("<td><input type='text' name='student-name'size='25'>");
-        out.println("</tr>");
-        
-        // year row
-        out.println("<tr>");
-        out.println("<td><span style=text-align: center; font-weight: bold>Birth Year</span></td>");
-        out.println("<td><input type='text' name='student-birth'size='25'>");
-        out.println("</tr>");
-        
-        // parent name.
-        out.println("<tr>");
-        out.println("<td><span style=text-align: center; font-weight: bold>Parent Name</span></td>");
-        out.println("<td><input type='text' name='student-parent'size='25'>");
-        out.println("</tr>");
-        
-        // parent email
-        out.println("<tr>");
-        out.println("<td><span style=text-align: center; font-weight: bold>Parent Email</span></td>");
-        out.println("<td><input type='text' name='student-pEmail'size='25'>");
-        out.println("</tr>");
-        
-        // group row
-        out.println("<tr>");
-        out.println("<td><span style=text-align: center; font-weight: bold>Group</span></td>");
-        out.println("<td><select name='group' width=2em style='width: 50px;'>");
-        out.println("<option value='N/A'></option>");
-        Iterator<Map.Entry<String, ArrayList<String>>> itr = map.entrySet().iterator();
-        while(itr.hasNext()) {
-        	Map.Entry<String, ArrayList<String>> entry = itr.next();
-        	// move to next group if size of 5.
-        	if(entry.getValue().size() == 5) continue;
-        	out.println("<option value='" + entry.getKey()+ "'>"+ entry.getKey() +"</option>");
-        }
-        out.println("</select>");
-        out.println("</td>");
-        // groups added from map.
-        out.println("</tr>");
-        
-        // add button
-        out.println("<tr> <td colspan=\"2\"> <button> Add </button> </td> </tr>");
-        
-//        out.println("</tr>");
-        out.println( "</body></html>" );
+
+        request.getRequestDispatcher("/WEB-INF/AddStudent.jsp").forward(request, response);
 
 	}
 
@@ -118,7 +67,7 @@ public class AddStudent extends HttpServlet {
 		}
 		
 		
-		response.sendRedirect("StudentList");
+		response.sendRedirect("StudentLIst");
 	}
 	
 	// convert given birth date to age by (cuurent year - birth date).
