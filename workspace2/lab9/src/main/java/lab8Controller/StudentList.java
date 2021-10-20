@@ -40,7 +40,7 @@ public class StudentList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Student> entries = (List<Student>) request.getServletContext().getAttribute("entries");
-		request.getRequestDispatcher("StudentList.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request, response);
 		
 	}
 

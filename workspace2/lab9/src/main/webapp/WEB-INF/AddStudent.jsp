@@ -7,7 +7,7 @@
 <title>AddStudent</title>
 </head>
 <body>
-<h2>AddStudent</h2>
+
 <form action='AddStudent' method='post'>
 	<table border=1>
 		<tr>

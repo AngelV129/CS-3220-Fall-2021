@@ -6,7 +6,7 @@
 <title>JSP Group List</title>
 </head>
 <body>
-<p>qweojwqoiejoi</p>
+
 
 <div><a href='./AddGroup'>New Group</a></div> <br>
 <table border=1>
