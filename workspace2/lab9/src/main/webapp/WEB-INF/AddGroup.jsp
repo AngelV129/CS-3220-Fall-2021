@@ -6,7 +6,7 @@
 <title>New Group</title>
 </head>
 <body>
-<h1>Add group</h1>
+
 
 <form action='AddGroup' method='post'>
 	<table border=1>

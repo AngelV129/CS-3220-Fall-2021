@@ -6,7 +6,6 @@
 <title>Student List</title>
 </head>
 <body>
-<h2>STUDENT LIST</h2>
 <div><a href='./AddStudent'>New Student</a></div> <br>
 <table border=1>
 	<thead>
