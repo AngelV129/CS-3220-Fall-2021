@@ -71,9 +71,10 @@ public class AddStudent extends HttpServlet {
 	}
 	
 	// convert given birth date to age by (cuurent year - birth date).
-	public String birthToAge(String birthDate){
+	private String birthToAge(String birthDate){
 		int newDate = Integer.parseInt(birthDate);
 		
-		return Integer.toString((2021 - newDate));}
+		return Integer.toString((2021 - newDate));
+		}
 
 }

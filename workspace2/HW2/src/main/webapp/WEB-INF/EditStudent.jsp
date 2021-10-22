@@ -17,7 +17,7 @@
         
         <tr>
         	<td><span style=text-align: center; font-weight: bold>Birth Year</span></td>
-        	<td><input type='text' name='student-birth'size='25' value="${currentstudent.m_age}">
+        	<td><input type='text' name='student-birth'size='25' value="${2021 - currentstudent.m_age}">
         </tr>
         
         <tr>
@@ -54,7 +54,7 @@
         </select>
         </td>
         </tr>
-        <tr><td colspan="2"> <button> Add </button></td></tr>
+        <tr><td colspan="2"> <button> Save </button></td></tr>
         
 	</table>
 </form>
