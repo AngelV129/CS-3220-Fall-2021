@@ -33,7 +33,7 @@
         <tr>
         	<td><span style=text-align: center; font-weight: bold>Group</span></td>
        	 	<td><select name='group' width=2em style='width: 50px;'>
-        <option value='N/A'></option>
+        <option value=""></option>
         
         <c:forEach var="entry" items="${map}">
         		

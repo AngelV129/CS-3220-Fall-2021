@@ -14,6 +14,7 @@
 		<tr>
 			<th><b>Group</b></th>
 			<th><b>Members</b></th>
+			<th><b>Edit</b></th>
 		</tr>
 	</thead>
 	<tbody>
@@ -26,6 +27,9 @@
 					<c:forEach var="name" items="${entry.value}">
 						 <span>${name}  </span>    
 					</c:forEach>
+				</td>
+				<td>
+					<a href='EditGroup?key=${entry.key}'>Edit</a>
 				</td>
 			</tr>
 			

@@ -93,12 +93,36 @@ public class EditStudent extends HttpServlet {
 		currentStudent.setM_parent_name(parent_name);
 		currentStudent.setM_age(age);
 		
+//		System.out.println("Insude of EditStudent group is "+oldGroup);
+//		System.out.println("Insude of editStudent group is "+group);
+		
+	
+		//FIXME: this is causing bug of unable to remove a student from group
+		// - and vice versa such as adding a student that is not in a group to one.
+		// - It keeps always checking map for 'N/A' value when it should never exist.
 		// change the students group.
-		if (oldGroup != "" && group != "N/A" && (!map.isEmpty())) {
+		if ((oldGroup != "") && (group != "" )&& (!map.isEmpty())) {
+			// add student to group
+			map.get(oldGroup).remove(student_name);
+			map.get(group).add(student_name);
+			
+		}
+		
+		if ((oldGroup == "") && (group != "" )&& (!map.isEmpty())) {
 			// add student to group
 			map.get(group).add(student_name);
 			
 		}
+		
+		if ((oldGroup != "") && (group == "" )&& (!map.isEmpty())) {
+			// add student to group
+			map.get(oldGroup).remove(student_name);
+			
+		}
+		
+		// TODO: Add a redirect page
+		// FIXME: Currently the code crashes when changing a students group.
+		response.sendRedirect("StudentLIst");
 			
 	}
 	

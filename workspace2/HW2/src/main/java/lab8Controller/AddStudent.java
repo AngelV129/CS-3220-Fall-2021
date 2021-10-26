@@ -59,10 +59,12 @@ public class AddStudent extends HttpServlet {
 		Student newStudent = new Student(student_name,parent_name,parent_email,age);
 		entries.add(newStudent);
 		
+//		System.out.println("Insude of AddStudent group is "+group);
+		
 		// Add to student to a group
 		// if value for student is empty then skip this step
-		
-		if(group != "N/A" && (!map.isEmpty())) {
+		//  FIXME: this is not supposed to try add group of "N/A" but keeps trying.
+		if(group != "" && (!map.isEmpty())) {
 			map.get(group).add(student_name);
 		}
 		
