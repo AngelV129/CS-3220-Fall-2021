@@ -3,7 +3,6 @@ package cs3220Servlet;
 import java.io.IOException;
 import java.util.List;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,33 +11,34 @@ import javax.servlet.http.HttpServletResponse;
 
 import practiceMidterm.Poll;
 
-@WebServlet("/DisplayPoll")
-public class DisplayPoll extends HttpServlet {
+/**
+ * Servlet implementation class CreatePoll
+ */
+@WebServlet("/CreatePoll")
+public class CreatePoll extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    public DisplayPoll() {
+
+    public CreatePoll() {
         super();
+        
     }
 
-	@SuppressWarnings({ "unchecked", "unchecked", "unchecked" })
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int id = Integer.parseInt( request.getParameter("id") );
-		List<Poll> polls = (List<Poll>) getServletContext().getAttribute("polls");
-		
-		Poll poll = null;
-		for(Poll p: polls) {
-			if(p.getId() == id) {
-				poll = p;
-				break;
-			}
-		}
-		
-		request.setAttribute("poll", poll);
-		request.getRequestDispatcher("/WEB-INF/DisplayPoll.jsp").forward(request, response);
-		
+	
+		request.getRequestDispatcher("/WEB-INF/CreatePoll.jsp").forward(request, response); 
 	}
 
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		Poll poll = new Poll();
+		poll.setQuestion(request.getParameter("question"));
+		poll.setSingleChoice(request.getParameter("single") != null);
+		
+		List<Poll> polls = (List<Poll>) getServletContext().getAttribute("polls");
+		polls.add(poll);
+		response.sendRedirect("AddAnswers?id="+poll.getId());
 	}
 
 }
