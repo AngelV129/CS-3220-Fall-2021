@@ -15,7 +15,7 @@
 	
 		<div>
 	
-		<c:if test="${game.leftID == id}">
+		<c:if test="${game.leftID == id} ">
 			
 			<li>${game.leftTeam } ${game.leftScore } - ${game.rightTeam } ${game.rightScore }</li>
 		</c:if>

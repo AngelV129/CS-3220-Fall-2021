@@ -83,6 +83,7 @@ public class AddGameScore extends HttpServlet {
 		games.add(game);
 		
 		
+		
 		response.sendRedirect("ListTeams");
 	}
 
