@@ -9,15 +9,16 @@ select distinct last_name from employees where id < 10
 select id from employees where first_name = 'Jane' and last_name = 'Doe';
 
 -- 3. Find the names of the employees who do not have a supervisor.
+-- CONCATNATE FIRST AND LAST NAME
 
-select concat(first_name, ' ', last_name) as 'Full Name' from employees
-    where supervisor_id is null;
+select CONCAT(first_name, ' ', last_name) as Name FROM employees 
+    WHERE supervisor_id is NULL;
 
 -- 4. List the employees who work on the project with id=1.
 
-select concat(e.first_name, ' ', e.last_name) as Name
-    from employees e, project_members m
-    where e.id = m.member_id and m.project_id = 1;
+select  CONCAT(e.first_name, ' ', e.last_name) as Name 
+    FROM employees e, project_members m 
+    WHERE e.id = m.member_id and m.project_id = 1;
 
 select concat(e.first_name, ' ', e.last_name) as Name
     from employees e inner join project_members m on e.id = m.member_id
