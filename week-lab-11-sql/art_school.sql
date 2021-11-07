@@ -40,16 +40,26 @@ SELECT s1.name FROM students s1 INNER JOIN student_groups sg
 -- 3. List the name, age, parent name, and parent email of the students. 
 -- The column names of the results should be Name, Age, Parent, and Email. Note that age is calculated as (current year - birth year).
 
-    SELECT s1.name as Name, 
-    2021 - s1.birth_year as Age,
-    s1.parent_name as Parent,
-    s1.parent_email as Email FROM students s1; 
+SELECT s1.name as Name, 
+2021 - s1.birth_year as Age,
+s1.parent_name as Parent,
+s1.parent_email as Email FROM students s1; 
 
 -- 4. List the names of the students and the name of the group each student is in. 
 -- The column names of the results should be Student Name and Group Name. If a student is not in a group, the group name column should show NULL.
+SELECT s1.name as Name,
+    sg.name "Group Name" 
+    FROM students s1 INNER JOIN student_groups sg
+    WHERE s1.group_id = sg.id;
 
 -- 5. List the names of the groups and the number of students in each group. 
 -- The result should show 0 for groups that do not have any students.
+SELECT sg.name as Group_Name, COUNT(s1.group_id) "Number_of_Members"
+    FROM student_groups sg, students s1 
+    WHERE sg.id = s1.group_id OR s1.group_id IS NULL
+    GROUP BY sg.name;
+    
+
 
 -- 6. Find the names of the groups that are not full. A group is not full if the number of students in the group is less than its max size. 
 -- HINT: first write a query to get the group name, max size, and the number of students in each group, 
