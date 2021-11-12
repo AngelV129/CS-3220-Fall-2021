@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import cs3220.midterm.model.Department;
+import midService.DbService;
 
 @WebServlet("/AddDepartment")
 public class AddDepartment extends HttpServlet {
@@ -32,10 +33,11 @@ public class AddDepartment extends HttpServlet {
     protected void doPost( HttpServletRequest request,
         HttpServletResponse response ) throws ServletException, IOException
     {
-        Department department = new Department(
-            request.getParameter( "name" ) );
-        ((List<Department>) getServletContext().getAttribute( "departments" ))
-            .add( department );
+        String department = request.getParameter( "name" );
+        DbService dbService = new DbService();
+    	dbService.addDepartment(department);
+    	dbService.close();
+       
         response.sendRedirect( "DisplayFaculty" );
     }
 

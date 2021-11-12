@@ -84,7 +84,55 @@ public class DbService {
     
     // add faculty will need to find the id for matching deptName.
     // After it will need to add the faculty entry.
+    public void addFaculty(String name, boolean isChair, String DeptName) {
+    	
+    	int dept_id=0;
+    	
+    	try {
+    		// SELECT dp.id, dp.name as department_name FROM department dp WHERE dp.name=?
+    		String sql = "SELECT dp.id, dp.name as department_name FROM department dp WHERE dp.name=?";
+    		PreparedStatement pstmt = connection.prepareStatement( sql);
+    		// Find the dept_id of matching department name.
+    		pstmt.setString(1, DeptName);
+    		ResultSet rs = pstmt.executeQuery();
+    		while( rs.next() ) dept_id = rs.getInt( "id" );
+    		pstmt.close();
+    		
+    		
+    		
+    		// Create the new record
+    		sql = "INSERT INTO faculty (name, is_chair, department_id) VALUES (?, ?, ?)";
+    		pstmt = connection.prepareStatement( sql,
+                    Statement.RETURN_GENERATED_KEYS );
+
+    		pstmt.setString(1, name);
+    		pstmt.setBoolean(2, isChair);
+    		pstmt.setInt(3, dept_id);
+    		pstmt.executeUpdate();
+    		pstmt.close();		
+    	}
+    	catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    	
+    }
     
     // addDept will just need to add the dept to the database
+    public void addDepartment(String deptName) {
+    	
+    	try {
+    		// Create the new record
+    		String sql = "INSERT INTO department (name) VALUES (?)";
+    		PreparedStatement pstmt = connection.prepareStatement( sql,
+                    Statement.RETURN_GENERATED_KEYS );
+
+    		pstmt.setString(1, deptName);
+    		pstmt.executeUpdate();
+    		pstmt.close();		
+    	}
+    	catch(SQLException e) {
+    		e.printStackTrace();
+    	}
+    }
 
 }

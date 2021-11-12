@@ -82,7 +82,7 @@ public class DisplayFaculty extends HttpServlet {
             	String currDepName = rs.getString("department_name");
             	String currFacName = rs.getString("faculty_name");
             	Boolean currChair = rs.getBoolean("chair");
-            	System.out.println("Current dept name is " + currDepName + " " + currFacName + " " + currChair);
+//            	System.out.println("Current dept name is " + currDepName + " " + currFacName + " " + currChair);
             	Faculty fac = new Faculty();
             	fac.setName(currFacName);
             	fac.setChair(currChair);
@@ -96,7 +96,6 @@ public class DisplayFaculty extends HttpServlet {
 //            		System.out.println(dep.getName() + " " + dep.getName());
             		// if mathching then add facutly to department
             		if(dep.getName().equalsIgnoreCase(currDepName)) {
-            			System.out.println("sdfdsfsdfsdff");
             			facultyList = dep.getFaculty();
             			facultyList.add(fac);
             		}

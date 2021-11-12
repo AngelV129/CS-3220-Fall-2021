@@ -22,10 +22,10 @@ create table department (
 INSERT INTO department (name) VALUES ('Computer Science');
 INSERT INTO department (name) VALUES ('MATH');
 
-create table department_faculty (
-    department_id  integer references department(id),
-    faculty_id   integer references faculty(id),
-);
+-- create table department_faculty (
+--     department_id  integer references department(id),
+--     faculty_id   integer references faculty(id),
+-- );
 
 
 -- Display Facutly queries
@@ -36,5 +36,12 @@ SELECT fa.name as faculty_name,
     WHERE fa.department_id = dp.id
     ORDER BY dp.name;
 
-SELECT dp.name as department_name
-    FROM department dp;
+-- -- Display only the departments
+-- SELECT dp.name as department_name
+--     FROM department dp;
+
+-- -- Display a target deptartment
+-- SELECT dp.id, dp.name as department_name FROM department dp WHERE dp.name="MATH";
+
+-- -- delete a record
+-- DELETE FROM faculty WHERE faculty.id = 4;

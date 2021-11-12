@@ -92,7 +92,14 @@ public class AddFaculty extends HttpServlet {
     {
     	// Insert data into the database
         String departmentName = request.getParameter( "department" );
+        boolean ischair = false;
+        String facultyName = request.getParameter("faculty");
         
+        if( request.getParameter( "chair" ) != null ) ischair = true;
+        
+        DbService dbService = new DbService();
+        dbService.addFaculty(facultyName, ischair, departmentName);
+        dbService.close();
         
         
 //        Faculty faculty = new Faculty( request.getParameter( "faculty" ) );
