@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import HW3Service.DbsService;
 import lab8Model.Student;
 
 /**
@@ -29,7 +31,14 @@ public class StudentList extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<Student> entries = (List<Student>) request.getServletContext().getAttribute("entries");
+		
+		DbsService dbService = new DbsService();
+		List<Student> entries = dbService.getStudents();
+		Map<String, List<String>> map = dbService.getGroup();
+		dbService.close();
+		
+		request.setAttribute("entries", entries);
+		request.setAttribute("map", map);
 		request.getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request, response);
 		
 	}

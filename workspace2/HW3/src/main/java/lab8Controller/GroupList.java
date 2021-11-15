@@ -37,8 +37,6 @@ public class GroupList extends HttpServlet {
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		System.out.println("sdfsdafsdfawf");
 		
 		DbsService dbService = new DbsService();
 		Map<String, List<String>> map = dbService.getGroup();

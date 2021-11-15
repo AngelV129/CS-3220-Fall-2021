@@ -37,9 +37,16 @@ SELECT students.name as student_name FROM students INNER JOIN student_groups
     WHERE student_groups.name = "Minnows";
 
 
+SELECT id, name, birth_year, parent_name, parent_email FROM students;
 
+-- insert a new GROUP 
+INSERT INTO student_groups (name) values ("test");
 
+-- insert a new student
+INSERT INTO students VALUES (null,'yeet', 1990, "parent", "p@email", 0);
 
+-- find id of target group
+SELECT id FROM student_groups WHERE name = "Minnows";
 
 
 -- 1. Find the names of the students who are not in any group.

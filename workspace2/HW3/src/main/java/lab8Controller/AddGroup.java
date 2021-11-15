@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import HW3Service.DbsService;
+
 /**
  * Servlet implementation class AddGroup
  */
@@ -35,10 +37,10 @@ public class AddGroup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String form_name = request.getParameter("group-name");
-		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
 		
-		map.put(form_name, new ArrayList<String>());
-		// add group name to map.
+		DbsService dbService = new DbsService();
+		dbService.addGroup(form_name);
+		dbService.close();
 		
 		response.sendRedirect("GroupList");
 		
