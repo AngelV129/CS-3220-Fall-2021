@@ -28,16 +28,6 @@ public class StudentList extends HttpServlet {
     }
 
 
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-		List<Student> entries = new ArrayList<Student>();
-		
-
-		// settting in application scope
-		config.getServletContext().setAttribute("entries", entries);
-	}
-
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<Student> entries = (List<Student>) request.getServletContext().getAttribute("entries");
 		request.getRequestDispatcher("/WEB-INF/StudentList.jsp").forward(request, response);

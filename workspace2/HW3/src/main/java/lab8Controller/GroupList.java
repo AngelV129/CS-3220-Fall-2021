@@ -15,6 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import HW3Service.DbsService;
+
 /**
  * Servlet implementation class GroupList
  */
@@ -28,15 +30,7 @@ public class GroupList extends HttpServlet {
     }
 
 	
-	public void init(ServletConfig config) throws ServletException {
-		super.init(config);
-		Map<String, List<String>> map = new TreeMap<>(); 
-
-		
-		config.getServletContext().setAttribute("map", map);
-	
-	}
-
+    
 	public ServletConfig getServletConfig() {
 
 		return null;
@@ -44,9 +38,12 @@ public class GroupList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		int array_size = 5;
-		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
+		System.out.println("sdfsdafsdfawf");
 		
+		DbsService dbService = new DbsService();
+		Map<String, List<String>> map = dbService.getGroup();
+		dbService.close();
+		request.setAttribute("map", map);
 		request.getRequestDispatcher("/WEB-INF/GroupList.jsp").forward(request, response);
         
       

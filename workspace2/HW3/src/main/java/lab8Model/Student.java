@@ -2,20 +2,23 @@ package lab8Model;
 
 public class Student {
 	
-	private static int numStudents = 0;
+//	private static int numStudents = 0;
 	private int id;
 	private int m_age;
 	private String m_name;
 	private String m_parent_name;
 	private String m_eMail;
 	
+	public Student(){
+
+	}
 	
 	public Student(String name, String pName,String email , int age){
 		this.m_name = name;
 		this.m_parent_name = pName;
 		this.m_eMail = email;
 		this.m_age = age;  
-		this.id = ++numStudents;
+//		this.id = ++numStudents;
 	}
 	
 	public int getId() {
