@@ -87,6 +87,41 @@ public class DbsService {
     	
     }
     
+ // return map of students with each groups members.
+    public Map<String, ArrayList<String>> getGroup1(){
+    	
+    	Map<String, ArrayList<String>> map = new TreeMap<>();
+    	// Fill the map with its key (group name).
+    	try
+        {
+    		String sql = "SELECT student_groups.name FROM student_groups";
+            PreparedStatement pstmt = connection.prepareStatement( sql );
+            ResultSet rs = pstmt.executeQuery();
+            while( rs.next() )
+            {
+            	// Plsce members is corresponding group
+            	// using an arraylist
+            	ArrayList<String> studentsInGroupList = getStudentGroupList(rs.getString(1));
+                map.put(rs.getString(1), studentsInGroupList);
+            }
+            pstmt.close();
+            
+            
+         
+            
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    	
+    	// Plsce members is corresponding group
+    	// using an arraylist
+    	
+		return map;
+    	
+    }
+    
     // returns an arraylist of students belonging to a specific group.
     public ArrayList<String> getStudentGroupList(String targetGroup){
     	
@@ -243,6 +278,87 @@ public class DbsService {
     	
 		return id;
     	
+    }
+    
+    // Return a student object given a specific student id.
+    public Student getStudent(int id) {
+    	Student targetStudent = new Student();
+    	int age;
+    	String name;
+    	String parent_name;
+    	String eMail;
+    	try
+        {
+    		// query for id, name, birth year, parent name, email
+    		String sql = "SELECT * FROM students WHERE id = ?";
+            PreparedStatement pstmt = connection.prepareStatement( sql,
+            		Statement.RETURN_GENERATED_KEYS);
+            pstmt.setInt(1, id);
+         
+            ResultSet rs = pstmt.executeQuery();
+            
+            while(rs.next()) {
+            	name = rs.getString("name");
+            	age = 2021 - rs.getInt("birth_year");
+            	parent_name = rs.getString("parent_name");
+            	eMail = rs.getString("parent_email");
+            	
+            	targetStudent.setId(id);
+            	targetStudent.setM_age(age);
+            	targetStudent.setM_eMail(eMail);
+            	targetStudent.setM_name(name);
+            	targetStudent.setM_parent_name(parent_name);
+            	
+            }
+            pstmt.close();  
+            
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    	
+		return targetStudent;
+    	
+    }
+    
+    
+    public void updateStudent(String name, int birthYear, String parentName, String parentEmail, String groupName, int targetAtudentId) {
+    	try
+        {
+    		// query for id, name, birth year, parent name, email
+    		String sql = "UPDATE students\r\n"
+    				+ "SET \r\n"
+    				+ "    name = ?,\r\n"
+    				+ "    birth_year = ?,\r\n"
+    				+ "    parent_name = ?,\r\n"
+    				+ "    parent_email = ?,\r\n"
+    				+ "    group_id = ? \r\n"
+    				+ "WHERE id = ?";
+            PreparedStatement pstmt = connection.prepareStatement( sql,
+            		Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, name);
+            pstmt.setInt(2, birthYear);
+            pstmt.setString(3, parentName);
+            pstmt.setString(4, parentEmail);
+            
+            
+            // insert null into the group_id column
+            if(groupName == "") {
+            	pstmt.setNull(5, Types.NULL);
+            }
+            else {
+            	pstmt.setInt(5, getGroupId(groupName) );
+            }
+            pstmt.setInt(6, targetAtudentId);
+         
+            pstmt.executeUpdate();
+            pstmt.close();     
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
     }
 
 }

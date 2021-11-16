@@ -17,7 +17,7 @@ create table students (
     birth_year      integer,
     parent_name     varchar(255),
     parent_email    varchar(255),
-    group_id        integer references student_groups(id)
+    group_id        integer references student_groups(id) 
 );
 
 insert into students values (1, 'John', 2017, 'Sue', 'sue@gmail.com', 1);
@@ -27,6 +27,16 @@ insert into students values (1, 'John', 2017, 'Sue', 'sue@gmail.com', 1);
 insert into students values (2, 'Jane', 2012, 'Sue', 'sue@gmail.com', 2);
 insert into students values (3, 'Luke', 2016, 'Steve', 'steve@gmail.com', 1);
 insert into students values (4, 'Tina', 2014, 'Paula', 'paula@gmail.com', null);
+
+-- update a row from students given the ID
+UPDATE students
+SET 
+    name = "yeet",
+    birth_year = 1970,
+    parent_name = "mom",
+    parent_email = "mom@mom.com",
+    group_id = NULL
+WHERE id = 1;
 
 -- Find all the goups
 SELECT student_groups.name FROM student_groups;
@@ -48,6 +58,8 @@ INSERT INTO students VALUES (null,'yeet', 1990, "parent", "p@email", 0);
 -- find id of target group
 SELECT id FROM student_groups WHERE name = "Minnows";
 
+-- find student with target id
+SELECT * FROM students WHERE id = 1;
 
 -- 1. Find the names of the students who are not in any group.
 SELECT s1.name FROM students s1 LEFT JOIN student_groups sg

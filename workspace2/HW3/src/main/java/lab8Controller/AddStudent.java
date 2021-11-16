@@ -59,24 +59,6 @@ public class AddStudent extends HttpServlet {
 		dbService.addStudent(student_name, age, parent_name, parent_email, group);
 		dbService.close();
 		
-//		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
-//		List<Student> entries = (List<Student>) request.getServletContext().getAttribute("entries");
-//
-//		
-//		// Add new student to arralist of students
-//		Student newStudent = new Student(student_name,parent_name,parent_email,age);
-//		entries.add(newStudent);
-//		
-////		System.out.println("Insude of AddStudent group is "+group);
-//		
-//		// Add to student to a group
-//		// if value for student is empty then skip this step
-//		//  FIXME: this is not supposed to try add group of "N/A" but keeps trying.
-//		if(group != "" && (!map.isEmpty())) {
-//			map.get(group).add(student_name);
-//		}
-		
-		
 		response.sendRedirect("StudentLIst");
 	}
 	

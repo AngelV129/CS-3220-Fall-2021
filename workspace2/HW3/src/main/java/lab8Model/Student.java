@@ -8,7 +8,9 @@ public class Student {
 	private String m_name;
 	private String m_parent_name;
 	private String m_eMail;
+	private int groupId;
 	
+
 	public Student(){
 
 	}
@@ -19,6 +21,14 @@ public class Student {
 		this.m_eMail = email;
 		this.m_age = age;  
 //		this.id = ++numStudents;
+	}
+	
+	public int getGroupId() {
+		return groupId;
+	}
+
+	public void setGroupId(int groupId) {
+		this.groupId = groupId;
 	}
 	
 	public int getId() {

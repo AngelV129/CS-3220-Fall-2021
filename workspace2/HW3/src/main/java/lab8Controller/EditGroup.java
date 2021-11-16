@@ -33,10 +33,6 @@ public class EditGroup extends HttpServlet {
 		String group = request.getParameter("key");
 		String oldGroup = request.getParameter("oldKey");
 		
-//		System.out.println("Inside edit group "+ group);
-//		System.out.println("Inside edit oldgroup "+ oldGroup);
-		
-		
 		// TODO: Check again later if need to modify List of Students
 		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
 		

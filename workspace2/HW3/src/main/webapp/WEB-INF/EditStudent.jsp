@@ -63,6 +63,7 @@
         </td>
         </tr>
         <tr><td colspan="2"> <button class="btn btn-primary"> Save </button></td></tr>
+        <input type="hidden" name="id" value=${param.id }>
         
 	</table>
 </form>
