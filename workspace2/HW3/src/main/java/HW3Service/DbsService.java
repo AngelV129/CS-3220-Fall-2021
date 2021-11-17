@@ -395,7 +395,7 @@ public class DbsService {
     	try
         {
     		// query for id, name, birth year, parent name, email
-    		String sql = "UPDATE students SET group_id = NULL WHERE name = ? LIMIT 1";
+    		String sql = "UPDATE students SET group_id = NULL WHERE name = ?"; // LIMIT 1
             PreparedStatement pstmt = connection.prepareStatement( sql,
             		Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, studentName);

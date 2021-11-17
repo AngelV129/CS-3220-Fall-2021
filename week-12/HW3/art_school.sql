@@ -28,6 +28,29 @@ insert into students values (2, 'Jane', 2012, 'Sue', 'sue@gmail.com', 2);
 insert into students values (3, 'Luke', 2016, 'Steve', 'steve@gmail.com', 1);
 insert into students values (4, 'Tina', 2014, 'Paula', 'paula@gmail.com', null);
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 -- MAKE A QUERY TO FIND A STUDENT IN TARGET GROUP GIVEN THE GROUP NAME.
  -- THEN USE THAT WUERY TO UPDATE THE GROUP_ ID OF STUDENT.ADD
 

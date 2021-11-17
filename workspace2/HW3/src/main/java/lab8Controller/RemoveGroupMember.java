@@ -2,6 +2,7 @@ package lab8Controller;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
@@ -27,8 +28,13 @@ public class RemoveGroupMember extends HttpServlet {
 		DbsService dbService = new DbsService();
 		
 		request.setAttribute("currentGroup", group);
+		
 		dbService.removeStudentFromGroup(target);
+		
+		Map<String, List<String>> map = dbService.getGroup();
+		request.setAttribute("map", map);
 		dbService.close();
+		
 
 		request.getRequestDispatcher("/WEB-INF/EditGroup.jsp").forward(request, response);
 	}
