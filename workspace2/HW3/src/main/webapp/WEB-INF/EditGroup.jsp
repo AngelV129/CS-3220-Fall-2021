@@ -36,7 +36,7 @@ crossorigin="anonymous">
 			<ul>
 			<%--iterate through the araylist of names --%>
 			<c:forEach var="name" items="${map[currentGroup]}">
-					 <li><span>${name}  <a class="btn btn-outline-info btn-sm" role="button" href='RemoveGroupMember?targetRemoval=${name}&key=${currentGroup}'>[Remove]</a></span></li><br>  
+					 <li><span>${name}  <a class="btn btn-outline-info btn-sm" role="button" href='/RemoveGroupMember?targetRemoval=${name}&key=${currentGroup}'>[Remove]</a></span></li><br>  
 					 <%--c:url var="targetStudent" value="RemoveGroupMember">
 					 
             <c:param name="targetRemoval" value="${name}"/>

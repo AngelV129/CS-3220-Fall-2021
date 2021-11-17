@@ -220,12 +220,12 @@ public class DbsService {
     	
     	// if groupName is empty enter group_id as null in student table
     	// else find group id and insert with new student. ""
-    	
+    	int id = 0;
     	try
         {
     		// query for id, name, birth year, parent name, email
     		String sql = "\r\n"
-    				+ "INSERT INTO students VALUES (null,?, ?, ?, ?,?);";
+    				+ "INSERT INTO students VALUES (NULL,?, ?, ?, ?,?);";
             PreparedStatement pstmt = connection.prepareStatement( sql,
             		Statement.RETURN_GENERATED_KEYS);
             pstmt.setString(1, name);
@@ -243,6 +243,10 @@ public class DbsService {
             }
          
             pstmt.executeUpdate();
+            ResultSet rs = pstmt.getGeneratedKeys();
+            
+            if(rs.next()) id = rs.getInt(1);
+            
             pstmt.close();     
         }
         catch( SQLException e )
@@ -359,6 +363,52 @@ public class DbsService {
         {
             e.printStackTrace();
         }
+    }
+    
+    // Names are unique is group database so using name will we sufficiant.
+    public void updateGroupName(String newName, String oldName) {
+    	
+    	
+    	try
+        {
+    		// query for id, name, birth year, parent name, email
+    		String sql = "UPDATE student_groups\r\n"
+    				+ "SET \r\n"
+    				+ "    name = ? \r\n"
+    				+ "WHERE name = ? ";
+            PreparedStatement pstmt = connection.prepareStatement( sql,
+            		Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, newName);
+            pstmt.setString(2, oldName);
+                    
+            pstmt.executeUpdate();
+            pstmt.close();     
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    }
+    
+    public void removeStudentFromGroup(String studentName) {
+    	
+    	try
+        {
+    		// query for id, name, birth year, parent name, email
+    		String sql = "UPDATE students SET group_id = NULL WHERE name = ? LIMIT 1";
+            PreparedStatement pstmt = connection.prepareStatement( sql,
+            		Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, studentName);
+
+                    
+            pstmt.executeUpdate();
+            pstmt.close();     
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    	
     }
 
 }

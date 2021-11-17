@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import HW3Service.DbsService;
+
 @WebServlet("/RemoveGroupMember")
 public class RemoveGroupMember extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -22,11 +24,12 @@ public class RemoveGroupMember extends HttpServlet {
 		// This only activates when the user presses the remove link next to a member in the Edit group page.
 		String group = request.getParameter("key");
 		String target = request.getParameter("targetRemoval");
+		DbsService dbService = new DbsService();
 		
 		request.setAttribute("currentGroup", group);
-		Map<String, ArrayList<String>> map =(Map<String, ArrayList<String>>)  request.getServletContext().getAttribute("map");
-		
-		map.get(group).remove(target);
+		dbService.removeStudentFromGroup(target);
+		dbService.close();
+
 		request.getRequestDispatcher("/WEB-INF/EditGroup.jsp").forward(request, response);
 	}
 
