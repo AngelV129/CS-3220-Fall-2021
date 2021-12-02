@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dollar Converter</title>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+var rates = {
+    "EUR" : 0.934,
+    "GBP" : 0.791,
+    "INR" : 64.659,
+    "AUD" : 1.326
+};
+$(function(){
+
+    // place the new converted amount into the webPage
+    function updatePageCurrency(convertedUsd) {
+        $("#amount").html(convertedUsd);
+    };
+
+    // Add your code here
+    var usd; // current vale of input field
+    var convertedUsd; // value of usd converted
+
+    // first grab the currency as typing
+    // convert the amount as you grab the value (keyup)
+    $("input[name='dollar']").keyup(function () {
+        usd = $("input[name='dollar']").val();
+
+        // grab current desired currency
+        let currenncy = $("#currency").val();
+        let rate = rates[currenncy];
+        convertedUsd = usd * rate;
+        updatePageCurrency(convertedUsd);
+    });
+
+    // conver the amount as the selecter changes (change)
+    $("#currency").change(function () {
+        usd = $("input[name='dollar']").val();
+
+        let currenncy = $("#currency").val();
+        let rate = rates[currenncy];
+        convertedUsd = usd * rate;
+        updatePageCurrency(convertedUsd);
+    });
+});
+
+</script>
+</head>
+<body>
+<input type="text" name="dollar" value="0" /> Dollar = <span id="amount">0</span>
+<select id="currency">
+    <option>EUR</option>
+    <option>GBP</option>
+    <option>INR</option>
+    <option>AUD</option>
+</select>
+</body>
+</html>
