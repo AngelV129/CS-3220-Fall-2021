@@ -1,6 +1,9 @@
 drop table if exists students;
 drop table if exists student_groups;
 
+
+
+-- group table
 create table student_groups (
     id          integer auto_increment primary key,
     name        varchar(255) unique not null,
@@ -11,6 +14,7 @@ insert into student_groups (name) values ('Minnows');
 insert into student_groups (name) values ('Dolphins');
 insert into student_groups (name) values ('Guppies');
 
+-- stidents tble
 create table students (
     id              integer auto_increment primary key,
     name            varchar(255) not null,
@@ -27,6 +31,7 @@ insert into students values (1, 'John', 2017, 'Sue', 'sue@gmail.com', 1);
 insert into students values (2, 'Jane', 2012, 'Sue', 'sue@gmail.com', 2);
 insert into students values (3, 'Luke', 2016, 'Steve', 'steve@gmail.com', 1);
 insert into students values (4, 'Tina', 2014, 'Paula', 'paula@gmail.com', null);
+
 
 -- 1. Find the names of the students who are not in any group.
 SELECT s1.name FROM students s1 LEFT JOIN student_groups sg
