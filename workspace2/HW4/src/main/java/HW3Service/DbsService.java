@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import lab8Model.Group;
 import lab8Model.Lesson;
 import lab8Model.Student;
 
@@ -493,6 +494,64 @@ public class DbsService {
     }
     
     // TODO: create method that get a list of groups in database.
+    public ArrayList<Group> getGroups() {
+    	ArrayList<Group> groups = new ArrayList<>();
+    	
+    	int id = 0;
+    	String name=null;
+    	
+    	try
+        {
+    		String sql = "SELECT id, name FROM student_groups"; // LIMIT 1
+            PreparedStatement pstmt = connection.prepareStatement( sql,
+            		Statement.RETURN_GENERATED_KEYS);
+
+            ResultSet rs = pstmt.executeQuery();
+            
+            while(rs.next()) {
+            	id = rs.getInt("id");
+            	name = rs.getString("name");
+            	
+            	Group lesson = new Group(id, name);
+            	groups.add(lesson);
+            }
+            pstmt.close();     
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    	
+		return groups;
+    	
+    }
+    
+    public void addLesson(String time, int length, int students_group_id, int student_id) {
+    	
+    	int id = 0;
+    	try
+        {
+    		// query for id, name, birth year, parent name, email
+    		String sql = "INSERT into lessons VALUES (NULL, ?, ?, ?, ?)";
+            PreparedStatement pstmt = connection.prepareStatement( sql,
+            		Statement.RETURN_GENERATED_KEYS);
+            pstmt.setString(1, time);
+            pstmt.setInt(2, length);
+            pstmt.setInt(3, students_group_id );
+            pstmt.setInt(4, student_id);
+         
+            pstmt.executeUpdate();
+            ResultSet rs = pstmt.getGeneratedKeys();
+            
+            if(rs.next()) id = rs.getInt(1);
+            
+            pstmt.close();     
+        }
+        catch( SQLException e )
+        {
+            e.printStackTrace();
+        }
+    }
 
 }
 

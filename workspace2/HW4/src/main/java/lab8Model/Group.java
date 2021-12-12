@@ -10,9 +10,10 @@ public class Group {
 	private String name;
 	private List<Student> groupMembers = new ArrayList<>();
 	
-	Group(String name){
+	public Group(int id, String name){
 		this.name = name;
-		this.id = ++numGroups;
+		this.id= id;
+		
 	}
 
 	public static int getNumGroups() {

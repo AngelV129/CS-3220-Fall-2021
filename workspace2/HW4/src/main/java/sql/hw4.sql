@@ -12,6 +12,8 @@ insert into student_groups (name) values ('Minnows');
 insert into student_groups (name) values ('Dolphins');
 insert into student_groups (name) values ('Guppies');
 
+SELECT id, name FROM student_groups;
+
 create table students (
     id              integer auto_increment primary key,
     name            varchar(255) not null,
@@ -41,10 +43,11 @@ CREATE table lessons(
 
 /* Select VALUES (time) FROM lessons CONVERT(varchar,@Existingdate,9) as [MMM DD YYYY hh:mm:ss:mmm(AM/PM)] */
 
-SELECT  DATE_FORMAT (le.time,"%m/%d/%Y %l:%i %p") AS PerDate FROM lessons le;
+-- SELECT  DATE_FORMAT (le.time,"%m/%d/%Y %l:%i %p") AS PerDate FROM lessons le;
 INSERT into lessons VALUES (NULL, "2021-11-13 13:30:00", 90, 0 , 1);
 INSERT into lessons VALUES (NULL, "2021-11-14 10:00:00", 90, 1 , 0);
 INSERT into lessons VALUES (NULL, "2021-11-14 13:30:00", 90, 2 , 0);
+INSERT into lessons VALUES (NULL, "2021-11-22 13:30", 60, 2 , 0);
 
 SELECT * FROM lessons ORDER BY times DESC;
 
